@@ -9,19 +9,28 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
+    var config = vscode.workspace.getConfiguration('swagger');
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "go-swagger" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
+	let disposable = vscode.commands.registerCommand('extension.swagger', function () {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+		var editor = vscode.window.activeTextEditor;
+		var line = editor.selection.active.line;
+		 editor.edit(function (editBuilder) {
+
+            try {
+                editBuilder.insert(new vscode.Position(line, 0), config.get("tpl"));
+            } catch (error) {
+                console.error(error);
+            }
+
+        });
 	});
 
 	context.subscriptions.push(disposable);
