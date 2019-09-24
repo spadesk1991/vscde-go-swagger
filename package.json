@@ -3,6 +3,7 @@
 	"displayName": "go-swagger",
 	"description": "a golang  swagger",
 	"version": "0.0.1",
+	 "publisher": "spadesk",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
