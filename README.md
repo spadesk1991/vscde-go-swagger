@@ -1,65 +1,21 @@
 # go-swagger README
 
-This is the README for your extension "go-swagger". After writing up a brief description, we recommend including the following sections.
-
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## config swagger
+### default config
+```json
+// @Summary 登录
+// @Description 登录
+// @Produce json
+// @Param body body controllers.LoginParams true "body参数"
+// @Success 200 {string} string "ok" "返回用户信息"
+// @Failure 400 {string} string "err_code：10002 参数错误； err_code：10003 校验错误"
+// @Failure 401 {string} string "err_code：10001 登录失败"
+// @Failure 500 {string} string "err_code：20001 服务错误；err_code：20002 接口错误；err_code：20003 无数据错误；err_code：20004 数据库异常；err_code：20005 缓存异常"
+// @Router /user/person/login [post
+```
+### change config
+```json
+{
+    "swagger.tpl":"// @Summary 登录\n// @Description 登录\n// @Produce json\n// @Param body body controllers.LoginParams true \"body参数\"\n// @Success 200 {string} string \"ok\" \"返回用户信息\"\n// @Failure 400 {string} string \"err_code：10002 参数错误； err_code：10003 校验错误\"\n// @Failure 401 {string} string \"err_code：10001 登录失败\"\n// @Failure 500 {string} string \"err_code：20001 服务错误；err_code：20002 接口错误；err_code：20003 无数据错误；err_code：20004 数据库异常；err_code：20005 缓存异常\"\n// @Router /user/person/login [post]\n"
+}
+```
