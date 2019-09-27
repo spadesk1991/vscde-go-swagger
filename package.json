@@ -13,26 +13,58 @@
 		"onCommand:extension.swagger"
 	],
 	"main": "./extension.js",
-	 "repository": {
-        "type": "git",
-        "url": "https://github.com/spadesk1991/vscde-go-swagger.git"
-    },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/spadesk1991/vscde-go-swagger.git"
+	},
 	"icon": "images/icon.png",
 	"contributes": {
+		"languages": [
+			{
+			  "id": "go",
+			  "extensions": [
+				".go"
+			  ],
+			  "aliases": [
+				"Go"
+			  ]
+			}],
 		"commands": [
 			{
 				"command": "extension.swagger",
-				"title": "swagger"
+				"title": "swagger",
+				"description":"Generate Swagger Comment"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
-  				"command": "extension.swagger",
-                "when": "editorTextFocus && resourceFilename =~ /.go/"
+					"command": "extension.swagger",
+					"when": "editorTextFocus",
+					"group": "9_cutcopypaste"
 				}
 			]
-		}
+		},
+		"configuration":{
+			"type": "object",
+			"title": "Swagger",
+			"properties": {
+				"swagger.tpl": {
+					"type": [
+					  "string"
+					],
+					"default": "// @Summary 登录\n// @Description 登录\n// @Produce json\n// @Param body body controllers.LoginParams true \"body参数\"\n// @Success 200 {string} string \"ok\" \"返回用户信息\"\n// @Failure 400 {string} string \"err_code：10002 参数错误； err_code：10003 校验错误\"\n// @Failure 401 {string} string \"err_code：10001 登录失败\"\n// @Failure 500 {string} string \"err_code：20001 服务错误；err_code：20002 接口错误；err_code：20003 无数据错误；err_code：20004 数据库异常；err_code：20005 缓存异常\"\n// @Router /user/person/login [post]\n",
+					"description": "Swagger comment config \ndefault:\n// @Summary 登录\n// @Description 登录\n// @Produce json\n// @Param body body controllers.LoginParams true \"body参数\"\n// @Success 200 {string} string \"ok\" \"返回用户信息\"\n// @Failure 400 {string} string \"err_code：10002 参数错误； err_code：10003 校验错误\"\n// @Failure 401 {string} string \"err_code：10001 登录失败\"\n// @Failure 500 {string} string \"err_code：20001 服务错误；err_code：20002 接口错误；err_code：20003 无数据错误；err_code：20004 数据库异常；err_code：20005 缓存异常\"\n// @Router /user/person/login [post]\n",
+					"scope":"resource"
+				  }
+			}
+		},
+		"keybindings": [{
+			"command": "extension.swagger",
+			"key": "ctrl+s ctrl+w",
+			"mac": "ctrl+s ctrl+w",
+			"when": "editorTextFocus"
+		}]
 	},
 	"scripts": {
 		"test": "node ./test/runTest.js"
