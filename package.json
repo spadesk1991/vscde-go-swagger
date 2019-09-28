@@ -2,8 +2,8 @@
 	"name": "go-swagger",
 	"displayName": "go-swagger",
 	"description": "a golang  swagger",
-	"version": "2.0.1",
-	"publisher": "skip1",
+	"version": "2.0.2",
+	"publisher": "spadesk",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
@@ -41,7 +41,7 @@
 			"editor/context": [
 				{
 					"command": "extension.swagger",
-					"when": "editorTextFocus",
+					"when": "editorTextFocus && resourceFilename =~ /.go/",
 					"group": "9_cutcopypaste"
 				}
 			]
@@ -62,9 +62,9 @@
 		},
 		"keybindings": [{
 			"command": "extension.swagger",
-			"key": "ctrl+s ctrl+w",
-			"mac": "ctrl+s ctrl+w",
-			"when": "editorTextFocus"
+			"key": "ctrl+w ctrl+w",
+			"mac": "ctrl+w ctrl+w",
+			"when": "editorTextFocus && resourceFilename =~ /.go/"
 		}]
 	},
 	"scripts": {
