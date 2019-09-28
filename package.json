@@ -2,8 +2,8 @@
 	"name": "go-swagger",
 	"displayName": "go-swagger",
 	"description": "a golang  swagger",
-	"version": "2.0.2",
-	"publisher": "spadesk",
+	"version": "2.0.4",
+	"publisher": "spadesk1991",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
@@ -59,13 +59,7 @@
 					"scope":"resource"
 				  }
 			}
-		},
-		"keybindings": [{
-			"command": "extension.swagger",
-			"key": "ctrl+w ctrl+w",
-			"mac": "ctrl+w ctrl+w",
-			"when": "editorTextFocus && resourceFilename =~ /.go/"
-		}]
+		}
 	},
 	"scripts": {
 		"test": "node ./test/runTest.js"
