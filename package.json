@@ -2,8 +2,8 @@
 	"name": "go-swagger",
 	"displayName": "go-swagger",
 	"description": "a golang  swagger",
-	"version": "0.0.1",
-	 "publisher": "spadesk",
+	"version": "0.1.0",
+	"publisher": "spadesk",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
@@ -14,10 +14,10 @@
 		"onCommand:extension.swagger"
 	],
 	"main": "./extension.js",
-	 "repository": {
-        "type": "git",
-        "url": "https://github.com/spadesk1991/vscde-go-swagger.git"
-    },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/spadesk1991/vscde-go-swagger.git"
+	},
 	"icon": "images/icon.png",
 	"contributes": {
 		"commands": [
@@ -29,8 +29,8 @@
 		"menus": {
 			"editor/context": [
 				{
-  				"command": "extension.swagger",
-                "when": "editorTextFocus && resourceFilename =~ /.go/"
+					"command": "extension.swagger",
+					"when": "editorTextFocus && resourceFilename =~ /.go/"
 				}
 			]
 		}
